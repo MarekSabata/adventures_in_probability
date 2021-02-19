@@ -101,7 +101,7 @@ class QuantileRegression(PredictiveIntervalModel):
             2-d numpy array with the dimensions being lower and upper bounds of the created predictive intervals
         """
         # Check if we already have model parameters, if not, fit the models
-        if self.params_lb or self.params_ub is None:
+        if self.params_lb is None or self.params_ub is None:
             self.fit(data=data["train"])
 
         # Get lower and upper bound of the intervals
